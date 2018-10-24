@@ -1,0 +1,252 @@
+#originalImages {
+	background: url(imagens/background.png) #e9ebec;
+	box-shadow: inset 0 12px 40px rgba(0, 0, 0, .3), inset 0 -12px 40px rgba(0, 0, 0, .3);
+	padding: 0 10px 10px 0px;
+	position: relative;
+	overflow-x: auto;
+	overflow-y: hidden;
+	min-height: calc(100vh - 92px);
+	padding:  5px;
+}
+
+canvas {
+	margin-top: 15px;
+	margin-left: 15px;
+}
+
+.dropdown {
+	padding-right: 10px;
+}
+
+.transformations-modal .modal-body {
+    position: relative;
+    padding: 0px;
+    background: #0f9dea14;
+    max-height: calc(88vh - 130px);
+    overflow:  scroll;
+}
+
+#canvas-transformations {
+	margin: 0;
+}
+
+#uiContainer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 3;
+    font-family: monospace;
+    pointer-events: none;
+    text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
+}
+
+canvas {
+	padding:  0px;
+}
+
+canvas.chartOnCanvas {
+	padding: 0;
+	margin: 0;
+}
+
+#uiContainer input[type=text] {
+	width: 50px;
+}
+
+#view-shortcuts,.app-content .app-heading, .app-heading-container, #upload-image-before-that, #transformations-open, #mCSB_1_container #main-menu > li:not(.fi) {
+	display: none;
+}
+
+
+#mCSB_2_container .primary-tr .contact.status-online:before {
+  background: #27a7d8;
+}
+#mCSB_2_container .secundary-tr .contact.status-online:before {
+  background: #ff9a00;
+}
+#mCSB_2_container .primary-tr.secundary-tr .contact.status-online:before {
+	background: linear-gradient(-45deg, #0f9dea 50%, #ff9a82 50% );
+}
+#mCSB_2_container .contact.status-online:before {
+  background: #DBE0E4;
+}
+
+
+.typeOfImage {
+	color: #0f9deb;
+	font-weight: 600;
+	text-transform:  capitalize;
+}
+
+.primary-tr .mark-primary {
+	background: hsla(201, 88%, 49%, 0.0392156862745098);
+	-moz-box-shadow:    inset 0 0 10px #0000002e;
+   -webkit-box-shadow: inset 0 0 10px #0000002e;
+   box-shadow:         inset 0 0 10px #0000002e;
+}
+
+.secundary-tr .mark-secundary {
+	background: rgba(255, 154, 0, 0.04);
+	-moz-box-shadow:    inset 0 0 10px #0000002e;
+   -webkit-box-shadow: inset 0 0 10px #0000002e;
+   box-shadow:         inset 0 0 10px #0000002e;
+}
+
+.contact img {
+	height:  40px;
+}
+
+#modal-default .dl-horizontal dt {
+    float: left;
+    width: 165px;
+    clear: left;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#modal-default .dl-horizontal dd {
+    margin-left: 190px;
+}
+
+#modal-default {
+	margin: auto;
+	width: 1200px;
+}
+
+#modal-default .modal-dialog {
+	width: 80%;
+}
+
+.switch-options .switch input:checked + span {
+    background-color: #354a5f;
+}
+
+
+.switch-options .switch span {
+	background-color: #55779a;
+}
+
+canvas.primary-canvas {
+	/*padding: 5px;*/
+  box-shadow: 0 0px 0px 5px #0f9dea;
+}
+
+canvas.secundary-canvas {
+  /*padding: 5px;*/
+  box-shadow: 0 0px 0px 5px #ff9a00;
+}
+
+canvas.primary-canvas.secundary-canvas {
+	box-shadow: 0 0px 0px 4px #e9ebec;
+	box-shadow: -5px 5px 0px #0f9dea, 5px -5px 0px 0px #ff9a00;
+	/*padding:  5px;*/
+}
+
+.swal2-popup {
+	font-size: 14px !important;
+	text-align: center !important;
+}
+
+body h2#swal2-title.swal2-title {
+	display: block !important;
+}
+
+.dropdown-menu {
+	max-width: 1vw !important;
+}
+
+.haveSought {
+	max-height: 1000px !important;
+	overflow: visible !important;
+}
+
+.soughtFound {
+	background-color: #1a1f32 !important;
+}
+
+.app .app-header .app-header-search:after {
+  content: "\f002";
+  font-family: 'FontAwesome';
+}
+
+.swal2-input {
+	margin-top: 0 !important;
+	margin-bottom: 14px !important;
+}
+
+.swal2-popup label {
+	margin-top: 15px;
+}
+
+#status {
+	position: fixed;
+	width: 400px;
+	bottom:  24px;
+	right: 26px;
+	font-size:  13px;
+	text-align:  right;
+}
+
+.transformations-modal .modal-dialog {
+    margin: auto !important;
+}
+
+body #modal-full .modal-dialog .modal-content {
+	margin: auto;
+	background: white;
+	width: 100% !important;
+	min-width: 100%;
+	max-width: 100% !important;
+}
+
+#modal-full .modal-body {
+	overflow: hidden;
+}
+
+#modal-full .modal-dialog {
+	margin: 6vh 40px !important;
+	width: calc(100% - 80px);
+}
+
+body .transformations-modal {
+	padding-left: 0 !important;
+}
+
+#modal-full {
+	overflow: hidden !important;
+}
+
+.swal2-popup select {
+    height: 3.625em;
+    padding: .75em;
+    width: 100%;
+}
+
+#open-encoder .dropdown-menu.dropdown-style {
+	max-width: 400px !important;
+}
+
+#open-encoder #summernote {
+  overflow-wrap: break-word !important;
+}
+
+body.dragging::before {
+  content: "Drop the file(s) anywhere on this page";
+  position: fixed;
+  left: 0; width: 100%;
+  top: 0; height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  background-color: rgba(45, 51, 73, 0.32);
+  pointer-events: none;
+  z-index: 999999999;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 1);
+}
+
+body.region-growth canvas {
+	cursor: crosshair;
+}

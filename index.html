@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>                        
+        <title>PDI Project Emanuel Cauê 2018.1</title>            
+        
+        <!-- META SECTION -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <!-- END META SECTION -->
+        <!-- CSS INCLUDE -->        
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="cauecss.css">
+        <link rel="stylesheet" href="css/caue/uploadzone.css">
+        <link rel="stylesheet" href="css/caue/slider-transformations.css">
+
+        <!-- EXTERNALS -->
+        <link rel=stylesheet" href="ext/sweetalert2.min.css">
+        <script type="text/javascriot" src="ext/Chart.min.js"></script>
+
+        <!-- EOF CSS INCLUDE -->
+    </head>
+    <body>        
+        
+        <!-- APP WRAPPER -->
+        <div class="app">                        
+            <!-- START APP CONTAINER -->
+            <div class="app-container">                
+                <!-- START SIDEBAR -->
+                <div class="app-sidebar app-navigation app-navigation-fixed scroll app-navigation-style-default app-navigation-open-hover dir-left" data-type="close-other">
+                    <a class="app-navigation-logo">
+                        Boooya - Revolution Admin Template
+                        <button class="app-navigation-logo-button mobile-hidden" data-sidepanel-toggle=".app-sidepanel"><span class="icon-cog"></span> <span id="menuOptions" class="changesNotifications app-navigation-logo-button-alert">0</span></button>
+                    </a>
+                    <nav>
+                        <ul id="main-menu">
+                            <li class="fi title">MAIN</li>
+                            <li class="fi"><a onclick="$('html,body').animate({ scrollTop: 0 }, 'slow')"><span class="nav-icon-hexa text-bloody-100">Tp</span> Scroll Top</a></li>
+                            <li class="fi">
+                                <a class="open-submenu" href="#"><span class="father-nav nav-icon-hexa text-orange-100">Op</span>Operations</a>
+                                <ul>                                
+                                    <li><a onclick="operationsAritAndLogic('+')"><span class="nav-icon-hexa">Sm</span> Sum</a></li>
+                                    <li><a onclick="operationsAritAndLogic('-')"><span class="nav-icon-hexa">Sb</span> Subtract</a></li>
+                                    <li><a onclick="operationsAritAndLogic('*')"><span class="nav-icon-hexa">Mt</span> Multiply</a></li>
+                                    <li><a onclick="operationsAritAndLogic('/')"><span class="nav-icon-hexa">Dv</span> Divide</a></li>
+                                    <li><a onclick="operationsAritAndLogic('&')"><span class="nav-icon-hexa">Ad</span> Logical And</a></li>
+                                    <li><a onclick="operationsAritAndLogic('|')"><span class="nav-icon-hexa">Or</span> Logical Or</a></li>
+                                    <li><a onclick="operationsAritAndLogic('^')"><span class="nav-icon-hexa">Xr</span> Logical Xor</a></li>
+                                    <li><a onclick="operationsAritAndLogic('**')"><span class="nav-icon-hexa">Ex</span> Pow (a/40)^(b/40)<span class="label label-success label-bordered label-ghost">Bonus</span></a></li>
+                                    <li><a onclick="operationsAritAndLogic('%')"><span class="nav-icon-hexa">Md</span> Module<span class="label label-success label-bordered label-ghost">Bonus</span></a></li>
+                                    <li><a onclick="callPostFixFormula()"><span class="nav-icon-hexa">Md</span> Postfix Formula<span class="label label-success label-bordered label-ghost">Bonus</span></a></li>
+                                    
+                                </ul>
+                            </li>                
+                            <li class="fi"><a id="transformations"><span class="nav-icon-hexa text-yellow-100">Tr</span> Transformations</a></li>
+                            
+                                            
+                            <li class="fi">
+                                <a class="open-submenu" href="#"><span class="father-nav nav-icon-hexa text-lime-200">Cc</span> Color Components</a>
+                                <ul>
+                                    <li>
+                                        <a onclick="generateRGBComponents()"><span class="nav-icon-hexa">Rg</span> RGB</a>
+                                    </li>
+                                    <li>
+                                        <a onclick="generateCMYComponents()"><span class="nav-icon-hexa">Cm</span> CMY</a>
+                                    </li>
+                                    <li>
+                                        <a onclick="generateCMYKComponents()"><span class="nav-icon-hexa">Ck</span> CMYK</a>
+                                    </li>
+                                    <li>
+                                        <a onclick="generateHSLComponents()"><span class="nav-icon-hexa">Hl</span> HSL</a>
+                                    </li>
+                                    <li>
+                                        <a onclick="generateHSLComponentsv2()"><span class="nav-icon-hexa">Hl</span> HSL v2</a>
+                                    </li>
+                                    <li>
+                                        <a onclick="generateHSVComponents()"><span class="nav-icon-hexa">Hv</span> HSV/HSB</a>
+                                    </li>
+                                    <li>
+                                        <a onclick="generateYUVComponents()"><span class="nav-icon-hexa">Yv</span> YUV</a>
+                                    </li>
+                                    <li>
+                                        <a onclick="generateYCbCrComponents()"><span class="nav-icon-hexa">Yb</span> YCbCr</a>
+                                    </li>
+                                    <li>
+                                        <a onclick="generateYCbCrComponents(undefined,1)"><span class="nav-icon-hexa">Yb</span> YCbCr 2 Colors</a>
+                                    </li>
+                                    
+                                </ul>
+                            </li>
+                            <li class="fi">
+                                <a class="open-submenu" href="#"><span class="father-nav nav-icon-hexa text-green-100">Pc</span> Pseudo Coloring</a>            
+                                <ul>
+                                    <li>
+                                        <a onclick="pseudoColoring()"><span class="nav-icon-hexa">P1</span> 2 Components in RGB<span class="label label-default label-bordered label-ghost">P&B</span></a>
+                                    </li>
+                                    <li>
+                                        <a onclick="pseudoColoringMinAndMaxBased()"><span class="nav-icon-hexa">P2</span> Max and Min Based<span class="label label-default label-bordered label-ghost">P&B</span></a>
+                                    </li>
+                                    <li>
+                                        <a onclick="pseudoColoring2()"><span class="nav-icon-hexa">P3</span> 2 Components in CMY<span class="label label-default label-bordered label-ghost">P&B</span></a>
+                                    </li>
+                                    <li>
+                                        <a onclick="pseudoColoringMinAndMaxBased2()"><span class="nav-icon-hexa">P4</span> Min and Max Keeping P&B<span class="label label-default label-bordered label-ghost">P&B</span></a>
+                                    </li>
+                                    <li>
+                                        <a onclick="pseudoColoring3()"><span class="nav-icon-hexa">P5</span> A Swap RGB<span class="label label-warning label-bordered label-ghost">Colored</span></a>
+                                    </li>
+                                    <li>
+                                        <a onclick="pseudoColoring3(undefined, 1)"><span class="nav-icon-hexa">P6</span> Random Swap RGB<span class="label label-warning label-bordered label-ghost">Colored</span></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a onclick="pseudoColoring3(undefined, 0, 1)"><span class="nav-icon-hexa">P7</span> A Swap + Sub<span class="label label-warning label-bordered label-ghost">Colored</span></a>
+                                    </li>
+                                    <li>
+                                        <a onclick="pseudoColoring3(undefined, 1, 1)"><span class="nav-icon-hexa">P8</span> Random Swap + Sub<span class="label label-warning label-bordered label-ghost">Colored</span></a>
+                                    </li>
+                                    <li>
+                                        <a onclick="pseudoColoringIgnoring()"><span class="nav-icon-hexa">P8</span> Ignore Color<span class="label label-warning label-bordered label-ghost">Colored</span></a>
+                                    </li>
+                                    <li>
+                                        <a onclick="pseudoColoringIgnoring(undefined, '-')"><span class="nav-icon-hexa">P8</span> Ignore Color + Sub<span class="label label-warning label-bordered label-ghost">Colored</span></a>
+                                    </li>
+                                    <li>
+                                        <a onclick="pseudoColoringIgnoring(undefined, '+')"><span class="nav-icon-hexa">P8</span> Ignore Color + Add<span class="label label-warning label-bordered label-ghost">Colored</span></a>
+                                    </li>
+                                    
+                                </ul>                        
+                            </li>
+                            
+                            
+                            
+                            <li class="fi">
+                                <a class="open-submenu" href="#"><span class="father-nav nav-icon-hexa text-teal-100">Hl</span> Highlight</a>
+                                <ul>                
+                                    <li><a onclick="callLinearTransform()"><span class="nav-icon-hexa">Lt</span> Interval<span class="label label-default label-bordered label-ghost">Linear</span></a></li>
+                                    <li><a onclick="invertColors()"><span class="nav-icon-hexa">Ic</span> Invert Colors<span class="label label-default label-bordered label-ghost">Linear</span></a></li>
+                                    <!--<li><a onclick="operationsAritAndLogic('postFixFormula', 'a ln')()"><span class="nav-icon-hexa">Lg</span> Log(pixel-1)<span class="label label-default label-bordered label-ghost">Not Linear</span></a></li> -->
+                                    <li><a onclick="notLinear(undefined, 'log')"><span class="nav-icon-hexa">Lg</span> a(log(pixel-1))<span class="label label-default label-bordered label-ghost">Not Linear</span></a></li>
+                                    <!--<li><a onclick="operationsAritAndLogic('postFixFormula', '255 a 1 + ln /')()"><span class="nav-icon-hexa">Lg</span> 255/log(pixel-1)<span class="label label-default label-bordered label-ghost">Not Linear</span></a></li>-->
+                                    <li><a onclick="notLinear(undefined, 'exp')"><span class="nav-icon-hexa">Lg</span> a(1 + e^(pixel)) Exp<span class="label label-default label-bordered label-ghost">Not Linear</span></a></li>
+                                    <li><a onclick="notLinear(undefined, 'sqrt')"><span class="nav-icon-hexa">Lg</span> a&#8730;pixel Square Root<span class="label label-default label-bordered label-ghost">Not Linear</span></a></li>
+                                    <li><a onclick="notLinear(undefined, 'squa')"><span class="nav-icon-hexa">Lg</span> a(pixel²) Squared<span class="label label-default label-bordered label-ghost">Not Linear</span></a></li>
+                                    
+                                    <li><a onclick="equalize_image()"><span class="nav-icon-hexa">Ei</span> Equalize Image</a></li>
+                                    <li><a onclick="callGammaCorrection()"><span class="nav-icon-hexa">Gc</span> Gamma Correction</a></li>
+                                </ul>
+                            </li>       
+                            <li class="fi">
+                                <a href="#"><span class="nav-icon-hexa text-blue-100">Fi</span> Filters</a>
+                                <ul>
+                                    <li><a onclick="callFilter()"><span class="nav-icon-hexa">Lp</span> Low Pass</a></li>
+                                    <li><a onclick="callKuwahara()"><span class="nav-icon-hexa">Ku</span> Kuwahara</a></li>
+                                    <li><a onclick="tomitaTisuji(undefined, 3)"><span class="nav-icon-hexa">Tt</span> Tomita and Tsuji</a></li> 
+                                    <li><a onclick="nagaoeMatsuyama()"><span class="nav-icon-hexa">Nm</span> Nagao e Matsuyama</a></li>  
+                                    <li><a onclick="somboonkaew()"><span class="nav-icon-hexa">Nm</span> Somboonkaew</a></li>     
+                                    <li><a onclick="convolver([[-1,-1,0],[-1,0,-1],[-1,1,0],[0,-1,-1],[0,0,4],[0,1,-1],[1,-1,0],[1,0,-1],[1,1,0]])"><span class="nav-icon-hexa">H1</span> H1</a></li>      
+                                    <li><a onclick="convolver([[-1,-1,-1],[-1,0,-1],[-1,1,-1],[0,-1,-1],[0,0,8],[0,1,-1],[1,-1,-1],[1,0,-1],[1,1,-1]])"><span class="nav-icon-hexa">H2</span> H2</a></li> 
+                                    <li><a onclick="convolver([[-1,-1,-1],[-1,0,-1],[-1,1,-1],[0,-1,-1],[0,0,9],[0,1,-1],[1,-1,-1],[1,0,-1],[1,1,-1]])"><span class="nav-icon-hexa">M1</span> M1</a></li> 
+                                    <li><a onclick="convolver([[-1,-1,1],[-1,0,-2],[-1,1,1],[0,-1,-2],[0,0,5],[0,1,-2],[1,-1,1],[1,0,-2],[1,1,1]])"><span class="nav-icon-hexa">M2</span> M2</a></li> 
+                                    <li><a onclick="convolver([[-1,-1,0],[-1,0,-1],[-1,1,0],[0,-1,-1],[0,0,5],[0,1,-1],[1,-1,0],[1,0,-1],[1,1,0]])"><span class="nav-icon-hexa">M3</span> M3</a></li> 
+                                    <li><a onclick="highBoost();"><span class="nav-icon-hexa">M1</span> High Boost</a></li>  
+                                    <li><a onclick="halftone2x2()"><span class="nav-icon-hexa">HT</span> Halftoning 2x2</a></li>  
+                                    <li><a onclick="halftone3x2()"><span class="nav-icon-hexa">HT</span> Halftoning 3x2</a></li> 
+                                    <li><a onclick="halftone3x3()"><span class="nav-icon-hexa">HT</span> Halftoning 3x3</a></li>  
+                                    <li><a onclick="floydSteinberg()"><span class="nav-icon-hexa">Fl</span> Floyd and Steinberg</a></li>   
+                                    <li><a onclick="rogers()"><span class="nav-icon-hexa">Ro</span> Rogers</a></li>         
+                                    <li><a onclick="jarvisJudiceNinke()"><span class="nav-icon-hexa">Jj</span> Jarvis, Judice & Ninke</a></li>  
+                                    <li><a onclick="stucki()"><span class="nav-icon-hexa">St</span> Stucki</a></li>  
+                                    <li><a onclick="stevensonArce()"><span class="nav-icon-hexa">Sa</span> Stevenson & Arce</a></li>                
+                                </ul>
+                            </li>
+                            <li class="fi">
+                                <a href="#"><span class="nav-icon-hexa text-darkblue-100">De</span> Detection</a>
+                                <ul>
+                                    <li><a onclick="dotsDetection()"><span class="nav-icon-hexa">Sh</span> Dots Detection</a></li>
+                                    <li><a onclick="convolver([[-1,-1,-1],[-1,0,-1],[-1,1,-1],[0,-1,2],[0,0,2],[0,1,2],[1,-1,-1],[1,0,-1],[1,1,-1]])"><span class="nav-icon-hexa">Sh</span> Horizontal Lines</a></li>
+                                    <li><a onclick="convolver([[-1,-1,-1],[-1,0,2],[-1,1,-1],[0,-1,-1],[0,0,2],[0,1,-1],[1,-1,-1],[1,0,2],[1,1,-1]])"><span class="nav-icon-hexa">Sh</span> Vertical Lines</a></li>
+                                    <li><a onclick="convolver([[-1,-1,-1],[-1,0,-1],[-1,1,2],[0,-1,-1],[0,0,2],[0,1,-1],[1,-1,2],[1,0,-1],[1,1,-1]])"><span class="nav-icon-hexa">Sh</span> 45 Degrees Lines</a></li>
+                                    <li><a onclick="convolver([[-1,-1,2],[-1,0,-1],[-1,1,-1],[0,-1,-1],[0,0,2],[0,1,-1],[1,-1,-1],[1,0,-1],[1,1,2]])"><span class="nav-icon-hexa">Sh</span> 135 Degrees Lines</a></li>
+                                    <li><a onclick="convolver([[-1,-1,2],[-1,0,-1],[-1,1,-1],[0,-1,-1],[0,0,2],[0,1,-1],[1,-1,-1],[1,0,-1],[1,1,2]])"><span class="nav-icon-hexa">Sh</span> 135 Degrees Lines</a></li>
+                                    <li><a onclick="askValue(roberts);"><span class="nav-icon-hexa">Rb</span> Cross differences Roberts</a></li>
+                                    <li><a onclick="askValue(crRoberts);"><span class="nav-icon-hexa">Cr</span> Cross differences Crossed Roberts</a></li>
+                                    <li><a onclick="convolver([[0,0,1],[1,0,0],[0,1,0],[1,1,-1]])"><span class="nav-icon-hexa">Rb</span> Absolute Values Roberts </a></li>
+                                    <li><a onclick="convolver([[0,0,1],[1,1,-1],[1,0,1],[0,1,-1]])"><span class="nav-icon-hexa">Rb</span> Absolute Values Crossed Roberts </a></li>
+                                    <li><a onclick="convolver([[-1,-1,-1],[-1,0,-1],[-1,1,-1],[1,-1,1],[1,0,1],[1,1,1]])"><span class="nav-icon-hexa">Px</span> Prewitt Gx</a></li>
+                                    <li><a onclick="convolver([[-1,-1,-1],[0,-1,-1],[1,-1,-1],[-1,1,1],[0,1,1],[1,1,1]])"><span class="nav-icon-hexa">Px</span> Prewitt Gy</a></li>
+                                    <li><a onclick="convolver([[-1,-1,-1],[-1,0,-1],[-1,1,-1],[1,-1,1],[1,0,1],[1,1,1],[-1,-1,-1],[0,-1,-1],[1,-1,-1],[-1,1,1],[0,1,1],[1,1,1]])"><span class="nav-icon-hexa">Px</span> Magnitude Prewitt</a></li>
+                                    <li><a onclick="convolver([[-1,-1,-1],[-1,0,-2],[-1,1,-1],[1,-1,1],[1,0,2],[1,1,1]])"><span class="nav-icon-hexa">Px</span> Sobel Gx</a></li>
+                                    <li><a onclick="convolver([[-1,-1,-1],[0,-1,-2],[1,-1,-1],[-1,1,1],[0,1,2],[1,1,1]])"><span class="nav-icon-hexa">Px</span> Sobel Gy</a></li>
+                                    <li><a onclick="convolver([[-1,-1,-1],[-1,0,-2],[-1,1,-1],[1,-1,1],[1,0,2],[1,1,1],[-1,-1,-1],[0,-1,-2],[1,-1,-1],[-1,1,1],[0,1,2],[1,1,1]])"><span class="nav-icon-hexa">Px</span> Magnitude Sobel</a></li>
+                                    <li><a onclick="kirsh()"><span class="nav-icon-hexa">Ks</span> Krish</a></li>
+                                    <li><a onclick="robison()"><span class="nav-icon-hexa">Ks</span> Robison</a></li>
+                                    <li><a onclick="freiChen()"><span class="nav-icon-hexa">Ks</span> Frei-Chen</a></li>
+                                    <li><a onclick="convolver([[0,-1,-1],[-1,0,-1],[0,0,4],[1,0,-1],[0,1,-1]])"><span class="nav-icon-hexa">L1</span> Laplaciano H1</a></li>
+                                    <li><a onclick="convolver([[-1,-1,-1],[-1,0,-4],[-1,1,-1],[0,-1,-4],[0,0,20],[0,1,-4],[1,-1,-1],[1,0,-4],[1,1,-1]])"><span class="nav-icon-hexa">L2</span> Laplaciano H2</a></li>
+                                    
+                                    
+                                </ul>
+                            </li> 
+                            <li class="fi">
+                                <a href="#"><span class="nav-icon-hexa text-darkblue-100">Se</span> Segmentation</a>
+                                <ul>
+                                    <li><a onclick="askValue(globalThreshold)"><span class="nav-icon-hexa">Gt</span> Global Treshold</a></li>
+                                    <li><a onclick="askValue(localThreshold, arr.mean)"><span class="nav-icon-hexa">Lt</span> Mean Local Treshold</a></li>
+                                    <li><a onclick="askValue(localThreshold, arr.median)"><span class="nav-icon-hexa">Lt</span> Median Local Treshold</a></li>
+                                    <li><a onclick="askValue(localThreshold, arr.maxMinMean)"><span class="nav-icon-hexa">Lt</span> (Max+Min)/2 Local Treshold</a></li>
+                                    <li><a onclick="askValue(localThreshold, arr.min)"><span class="nav-icon-hexa">Lt</span> Min Local Treshold</a></li>
+                                    <li><a onclick="askValue(localThreshold, arr.max)"><span class="nav-icon-hexa">Lt</span> Max Local Treshold</a></li>
+                                    <li><a onclick="askNiblack(localThreshold, arr.max)"><span class="nav-icon-hexa">Lt</span> Niblack</a></li>
+                                    <li><a onclick="startRegionGrowth()"><span class="nav-icon-hexa">Rg</span> Region Growth</a></li>
+                                </ul>
+                            </li> 
+                            <li class="fi">
+                                <a class="open-submenu" href="#"><span class="father-nav nav-icon-hexa text-sea-100">Ex</span> Extras</a>
+                                <ul>                                
+                                    <!--<li><a onclick="whiteAndBlack()"><span class="nav-icon-hexa">Bw</span> Have black and white?</a></li>-->
+                                    <li><a onclick="isTheSameImage()"><span class="nav-icon-hexa">Ts</span> Is the same?</a></li>
+                                    <li><a onclick="isBlackAndWhiteImage(undefined, 1)"><span class="nav-icon-hexa">Ts</span> Is black and white?</a></li>
+                                    <li><a onclick="histogram_compare(undefined, undefined, 'Primary', 'Secundary')"><span class="nav-icon-hexa">Hc</span> Histogram Compare</a></li>
+                                    <li><a onclick="calligraphy_effect()"><span class="nav-icon-hexa">Ce</span> Calligraphy Effect</a></li>
+                                    <li><a onclick="visionBreaker(undefined, 120)"><span class="nav-icon-hexa">Ce</span> Vision Breaker</a></li>
+                                </ul>
+                            </li>
+                            <li class="fi">
+                                <a class="open-submenu" href="#"><span class="father-nav nav-icon-hexa text-sea-100">Pr</span> Project</a>
+                                <ul>                                
+                                    <!--<li><a onclick="whiteAndBlack()"><span class="nav-icon-hexa">Bw</span> Have black and white?</a></li>-->
+                                    <li><a onclick="$.fn.modal.Constructor.prototype.enforceFocus = function () {};$('#open-encoder').modal(); $('#open-encoder .btn-primary').show();$('#editSummer').hide(); $('#summernote').summernote({focus: true});"><span class="nav-icon-hexa">Ei</span> Open Encoder</a></li>
+                                    <li><a onclick="unCompress()"><span class="nav-icon-hexa">Uc</span> Decrypt Direct</a></li>
+                                    <li><a onclick="decodeImage()"><span class="nav-icon-hexa">Di</span> Decrypt Random</a></li>
+                                    <li><a onclick="decryptViginereImage()"><span class="nav-icon-hexa">Uc</span> Decrypt Viginere</a></li>
+                                    <li><a onclick="decryptAesImage()"><span class="nav-icon-hexa">Uc</span> Decrypt Aes</a></li>
+                                </ul>
+                            </li>
+                            
+                        </ul>
+                    </nav>
+                </div>
+                <!-- END SIDEBAR -->
+                
+                <!-- START APP CONTENT -->
+                <div class="app-content app-header-fixed app-sidebar-left">                    
+                    <!-- START APP HEADER -->
+                    <div class="app-header">
+                        <ul class="app-header-buttons">
+                            <li class="visible-mobile"><a href="#" class="btn btn-link btn-icon" data-sidebar-toggle=".app-sidebar.dir-left"><span class="icon-menu"></span></a></li>
+                            <li class="hidden-mobile"><a href="#" class="btn btn-link btn-icon" data-sidebar-minimize=".app-sidebar.dir-left"><span class="icon-menu"></span></a></li>
+                        </ul>
+                        <form class="app-header-search" action="" method="post">        
+                            <input id="searchFunction" autocomplete="off" type="text" name="keyword" placeholder="Search and enter to go">
+                        </form>   
+                        <ul class="app-header-buttons pull-left">
+                            <li>
+                                <div style="padding:0 " class="contact contact-lg">
+                                    <div class="contact-container">
+                                        <a href="#">Emanuel Cauê Nolasco Rodrigues</a>
+                                        <span>Ciência da Computação - UFERSA</span>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                        <ul class="app-header-buttons pull-right">
+                            <li>
+                                <div class="">
+                                    <div class="contact-controls">
+                                        <div class="dropdown">
+                                            <button type="button" class="btn btn-default btn-icon" data-toggle="dropdown"><span class="fa fa-rotate-right"></span></button>                        
+                                            <ul class="dropdown-menu dropdown-left">
+                                                <div class="form-group file-area">
+                                                    <label for="images">Clear desktop</span></label>
+                                                    <p>When clearing the desktop, all images will be erased and the data also. To erase a single image from the desktop and hold the data, <b>Ctrl + Click</b> the image, or use <b>Ctrl + Space</b> to clear desktop without delete data.</p>
+                                                    <div class="row">
+                                                        <div class="col-md-12">                                            
+                                                            <p><button onclick="clearDesktop()" type="button" class="btn btn-danger btn-clean btn-block">Clear desktop and Data</button></p>
+                                                        </div>                                        
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </div>                    
+                                    </div>
+                                    
+                                </div>
+                            </li>
+                            <li>
+                                <div class="">
+                                    <div class="contact-controls">
+                                        <div class="dropdown">
+                                            <button type="button" class="btn btn-default btn-icon" data-toggle="dropdown"><span class="fa fa-file-image-o"></span></button>                        
+                                            <ul class="dropdown-menu dropdown-left">
+                                                <div class="form-group file-area">
+                                                    <label for="images">Images: <span> Please, upload images</span></label>
+                                                    <input type="file" name="img" id="uploadimage" required="required" multiple="multiple"/>
+                                                    <div class="file-dummy">
+                                                        <div class="success">Selected files.</div>
+                                                        <div class="default">Drop the files here or click to select <b>(Shortcut: U)</b><br>You can also upload copied images by pressing <b>Ctrl + V</b></div>
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </div>                    
+                                    </div>
+                                    
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <!-- END APP HEADER  -->
+                                                           
+                    
+                    <!-- START PAGE CONTAINER -->
+                    <div class="container">
+                        
+                        <div class="block" style="padding: 0">
+                            <div id="originalImages"></div>
+                        </div>
+                        <div id="status"></div>
+                        
+                    </div>
+                    <!-- BUTTONS -->
+                    <button id="transformations-open" class="btn btn-default" data-toggle="modal" data-target="#modal-full">Open Trasnformations</button>
+                    <button id="upload-image-before-that" type="button" class="btn btn-default notify" data-notify-type="warning" data-notify="<strong>Aviso</strong>Faça o Upload de uma Imagem Antes">Show Me</button>   
+                    <button id="view-shortcuts" class="btn btn-default" data-toggle="modal" data-target="#modal-default">View Shortcuts</button>                 
+
+                </div>
+                <!-- END APP CONTENT -->
+                                
+            </div>
+            <!-- END APP CONTAINER -->            
+            
+            <!-- MODAL DEFAULT -->
+            <div class="modal fade modal-lg" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default-header">                        
+                <div class="modal-dialog" role="document">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="icon-cross"></span></button>
+
+                    <div class="modal-content">
+                        <div class="modal-header">                        
+                            <h4 class="modal-title" id="modal-default-header">Shortcuts</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <dl class="dl-horizontal">
+                                      <dt><i>Tab</i><span class="plus">+</span><i>⏎</i></dt><dd>Open Config Panel</dd>
+                                      <dt><i>U</i></dt><dd>Upload Images</dd>
+                                      <dt><i>Click image</i></dt><dd>Set primary Image</dd>
+                                      <dt><i>DblClick Image</i></dt><dd>Set secundary image</dd>
+                                      <dt><i>=</i></dt><dd>Compare Images</dd>
+                                    </dl>
+                                </div>
+                                <div class="col-md-6">
+                                    <dl class="dl-horizontal">
+                                      <dt><i>CTRL</i><span class="plus">+</span><i>V</i></dt><dd>Paste Image to Board</dd>
+                                      <dt><i>CTRL</i><span class="plus">+</span><i>Space</i></dt><dd>Clear Board</dd>
+                                      <dt><i>CTRL</i><span class="plus">+</span><i>Click</i></dt><dd>Remove Image from Board</dd>
+                                      <dt><i>CTRL</i><span class="plus">+</span><i>RClick</i></dt><dd>Save Image</dd>
+                                      <dt><i>S</i></dt><dd>Search</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>            
+            </div>
+            
+            <!-- MODAL LARGE -->
+            <div class="modal fade" id="open-encoder" tabindex="-1" role="dialog" aria-labelledby="modal-large-header">                        
+                <div class="modal-dialog modal-lg" role="document">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="icon-cross"></span></button>
+
+                    <div class="modal-content">
+                        <div class="modal-header">                        
+                            <h4 class="modal-title" id="modal-large-header">Encoder/Decoder</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group" style="width:100% !important;min-width:100%;">
+                                <div id="summernote" class="editor-summernote">
+                                    <h1>Lorem ipsum dolor sit amet</h1>
+                                    <p>Ad eos diam scripta, an eirmod noluisse incorrupte vel. <strong>Mei alia tota tritani cu</strong>. Sale maiorum molestiae ad eum. Enim hendrerit eu mel. Cu duis deseruisse honestatis est, quem interesset ut cum, an vix nulla noster nostrum. Minim quodsi ullamcorper ad eum.</p>
+                                    <p>Mei eu vitae periculis consequuntur. Est ex veniam aliquando efficiantur. Errem saepe vis te, vis et unum facilis. Eirmod dissentias referrentur cu nec.</p>
+                                        
+                                    <h3>Id eum case aliquip suavitate?</h3>
+                                    <p>Quo te everti ponderum tractatos. Viderer admodum cu cum. Ius munere ponderum pertinacia in, est natum everti tincidunt ei, graeco iuvaret ut eam. Ne falli dolores cotidieque his, te augue delicatissimi mei. Pro tamquam debitis an. No dicant nostrud sea, eripuit scripserit an vim.</p>
+                                    <ul>
+                                        <li>Ex vim enim aperiam.</li>
+                                        <li>Ne usu quas meliore, et omnes inciderint per.</li>
+                                        <li>Eum no dicant delenit probatus.</li>
+                                    </ul>
+
+                                    <h3>Appareat facilisis</h3>
+                                    <p>Pri at vidisse legendos evertitur. Ius dicat recteque id, feugiat docendi definitiones et mel. His et postea audire hendrerit, ex nobis congue graecis eos. Pri no choro oportere, vel accusata consequat conceptam id.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button id="closeEncode" type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                            <button id="editSummer" onclick="$('#summernote').summernote({focus: true}); $('#editSummer').hide(); $('#open-encoder .btn-primary').show();" type="button" class="btn btn-default">Edit</button>
+                            <button id="generateCompressed" style="text-shadow: none !important;" onclick="generateCompressedImageCall(); " class="btn btn-primary btn-icon-fixed"><span class="icon-arrow-right"></span> 1.Direct</button>
+                            <button id="generateCoded" style="text-shadow: none !important;" onclick="generateCodedImageCall(); " class="btn btn-primary btn-icon-fixed"><span class="icon-arrow-right"></span> 2.Random</button>
+                            <button id="generateEncrypted" style="text-shadow: none !important;" onclick="generateEncryptedImageCall(); " class="btn btn-primary btn-icon-fixed"><span class="icon-arrow-right"></span> 3.Viginere</button>
+                            <button id="generateEncryptedAes" style="text-shadow: none !important;" onclick="generateEncryptedAesImageCall(); " class="btn btn-primary btn-icon-fixed"><span class="icon-arrow-right"></span> 4.Aes</button>
+                        </div>
+                    </div>
+                </div>            
+            </div>
+            <!-- END MODAL LARGE -->
+            
+            <!-- MODAL FULL WIDTH -->
+            <div class="modal fade transformations-modal" id="modal-full" tabindex="-1" role="dialog" aria-labelledby="modal-full-header">                        
+                <div class="modal-dialog modal-fw" role="document">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="icon-cross"></span></button>
+
+                    <div class="modal-content">
+                        <div class="modal-header">                        
+                            <h4 class="modal-title" id="modal-full-header">2D Transformations</h4>
+                        </div>
+                        <div class="modal-body">
+                            <canvas id="canvas-transformations"></canvas>
+                            <div id="uiContainer">
+                                <div id="ui">
+                                    <div id="x">
+                                        <div class="gman-widget-outer">
+                                            <div class="gman-widget-label">Translate X</div>
+                                            <div class="gman-widget-value"><input type="text" name="translatex" value="0"></div>
+                                            <input class="gman-widget-slider" type="range" min="-450" max="450" value="0">
+                                        </div>
+                                    </div>
+                                    <div id="y">
+                                        <div class="gman-widget-outer">
+                                            <div class="gman-widget-label">Translate Y</div>
+                                            <div class="gman-widget-value"><input type="text" name="translatey" value="0"></div>
+                                            <input class="gman-widget-slider" type="range" min="-450" max="450" value="0">
+                                        </div>
+                                    </div>
+                                    <div id="angle">
+                                        <div class="gman-widget-outer">
+                                            <div class="gman-widget-label">Rotation</div>
+                                            <div class="gman-widget-value"><input type="text" name="rotation" value="0"></div>
+                                            <input class="gman-widget-slider" type="range" min="0" max="360" value="0">
+                                        </div>
+                                    </div>
+                                    <div id="scalex">
+                                        <div class="gman-widget-outer">
+                                            <div class="gman-widget-label">Scale X</div>
+                                            <div class="gman-widget-value"><input type="text" name="scalex" value="1"></div>
+                                            <input class="gman-widget-slider" type="range" min="-5" max="5" value="1" step="0.1">
+                                        </div>
+                                    </div>
+                                    <div id="scaley">
+                                        <div class="gman-widget-outer">
+                                            <div class="gman-widget-label">Scale Y</div>
+                                            <div class="gman-widget-value"><input type="text" name="scaley" value="1"></div>
+                                            <input class="gman-widget-slider" type="range" min="-5" max="5" value="1" step="0.1">
+                                        </div>
+                                    </div>
+                                    <div id="skewx">
+                                        <div class="gman-widget-outer">
+                                            <div class="gman-widget-label">Skew X</div>
+                                            <div class="gman-widget-value"><input type="text" name="skewx" value="0"></div>
+                                            <input class="gman-widget-slider" type="range" min="-5" max="5" value="0" step="0.1">
+                                        </div>
+                                    </div>
+                                    <div id="skewy">
+                                        <div class="gman-widget-outer">
+                                            <div class="gman-widget-label">Skew Y</div>
+                                            <div class="gman-widget-value"><input type="text" name="skewy" value="0"></div>
+                                            <input class="gman-widget-slider" type="range" min="-5" max="5" value="0" step="0.1">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="reflect_x" class="btn btn-link">Reflection X</button>
+                            <button type="button" id="reflect_y" class="btn btn-link">Reflection Y</button>
+
+                            <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                            <button type="button" id="applyTransformations" class="btn btn-default">Reload Image and Settings</button>
+                        </div>
+                    </div>
+                </div>            
+            </div>
+            <!-- END MODAL FULL WIDTH -->
+            
+            
+            
+            <!-- START APP SIDEPANEL -->
+            <div class="app-sidepanel scroll" data-overlay="show">                
+                <div class="container">
+                    
+                    <div class="app-heading app-heading-condensed app-heading-small">
+                        <div class="icon icon-lg">
+                            <span class="icon-alarm"></span>
+                        </div>
+                        <div class="title">
+                            <h2>Notifications</h2>              
+                            <p><strong><span class="changesNotifications">0</span> new</strong>, latest: <span id="lastUpdate">None</p>
+                        </div>                                
+                    </div>        
+            
+                    <div class="block block-condensed">
+                        <!-- START HEADING -->
+                        <div class="app-heading app-heading-small">
+                            <div class="title">
+                                <h5>IMAGES UPLOADEDS</h5>
+                                <p>Set primary/secundary or delete image from table</p>
+                            </div>
+                        </div>
+                        <!-- END HEADING -->
+                        <table class="table table-head-light table-striped" style="
+                            width: 100%;
+                            border-collapse:collapse;
+                            table-layout:fixed;
+                            ">
+                            <thead style="border-top: 1px #dce1e4 solid;">
+                                <tr>
+                                    <th style="
+                                        width: 50%;
+                                        ">Image</th>
+                                    <th style="
+                                        width: 50%;
+                                        ">actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="imagesTable">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="app-heading app-heading-condensed app-heading-small margin-bottom-20">
+                        <div class="icon icon-lg">
+                            <span class="icon-cog"></span>
+                        </div>
+                        <div class="title">
+                            <h2>Settings</h2>              
+                            <p>Set your options</p>
+                        </div>                                
+                    </div>
+                    <div id="settings-form">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <label class="switch switch-sm margin-0">
+                                        <input type="checkbox" name="local_storage" checked="" value="1">
+                                    </label>
+                                </div>
+                                <div class="col-xs-10">
+                                    <label>Save in Local Storage</label>
+                                </div>
+                            </div>            
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <label class="switch switch-sm margin-0">
+                                        <input type="checkbox" name="accumulate" value="1">
+                                    </label>
+                                </div>
+                                <div class="col-xs-10">
+                                    <label>Last image auto-set Primary</label>
+                                </div>
+                            </div>            
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <label class="switch switch-sm margin-0">
+                                        <input type="checkbox" name="auto_secundary" value="1">
+                                    </label>
+                                </div>
+                                <div class="col-xs-10">
+                                    <label>Next-to-last image auto-set Secundary</label>
+                                </div>
+                            </div>            
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <label class="switch switch-sm margin-0">
+                                        <input type="checkbox" name="roll_down" checked="" value="1">
+                                    </label>
+                                </div>
+                                <div class="col-xs-10">
+                                    <label>Auto Roll Down Board on add Image</label>
+                                </div>
+                            </div>            
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <label class="switch switch-sm margin-0">
+                                        <input type="checkbox" name="highlight_images" checked="" value="1">
+                                    </label>
+                                </div>
+                                <div class="col-xs-10">
+                                    <label>Highlight Primary and Secundary Images</label>
+                                </div>
+                            </div>            
+                        </div>
+                        <div class="form-group">
+                            <div class="row switch-options">
+                                <div class="col-xs-4" style="
+                                    text-align:  center;
+                                    ">
+                                    <label>Truncate</label>
+                                </div>
+                                <div class="col-xs-4" style="
+                                    text-align:  center;
+                                    ">
+                                    <label class="switch switch-sm margin-0">
+                                    <input type="checkbox" name="normalize" checked="" value="1">
+                                    </label>
+                                </div>
+                                <div class="col-xs-4" style="
+                                    text-align:  center;
+                                    ">
+                                    <label style="
+                                        text-align:  center;
+                                        ">Normalize</label>
+                                </div>
+                            </div>          
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <label class="switch switch-sm margin-0">
+                                        <input type="checkbox" name="origin_operations" checked="" value="1">
+                                    </label>
+                                </div>
+                                <div class="col-xs-10">
+                                    <label>Operations from Origin / Center</label>
+                                </div>
+                            </div>            
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <label class="switch switch-sm margin-0">
+                                        <input type="checkbox" name="get_pixel_data" checked="" value="1">
+                                    </label>
+                                </div>
+                                <div class="col-xs-10">
+                                    <label>Show Pixel Data on Mouse Over</label>
+                                </div>
+                            </div>            
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <label class="switch switch-sm margin-0">
+                                        <input type="checkbox" name="full_width_charts" checked="" value="1">
+                                    </label>
+                                </div>
+                                <div class="col-xs-10">
+                                    <label>Full Width Charts</label>
+                                </div>
+                            </div>            
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <label class="switch switch-sm margin-0">
+                                        <input type="checkbox" name="enable_shortcuts" checked="" value="1">
+                                    </label>
+                                </div>
+                                <div class="col-xs-10">
+                                    <label>Enable Shortcuts</label>
+                                </div>
+                            </div>
+                            <div class="col-xs-14"><p>Enabling this option allows you to set primary image with <b>Single Click</b>, secondary with <b>Double Click</b> and etc. Click <a onclick="$('#view-shortcuts').trigger('click');" class=".view-shortcuts">here</a> to view more shortcuts.</p><br/><br/><br/></div>          
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END APP SIDEPANEL -->
+            
+            <!-- APP OVERLAY -->
+            <div class="app-overlay"></div>
+            <!-- END APP OVERLAY -->
+        </div>        
+        <!-- END APP WRAPPER -->
+                
+        
+        <!-- IMPORTANT SCRIPTS -->
+        <script type="text/javascript" src="js/vendor/jquery/jquery.min.js"></script>
+        <!-- CAUE JS -->
+
+        <script type="text/javascript" src="js/caue/interface/options.js"></script>
+        <script type="text/javascript" src="js/caue/interface/notifications.js"></script>
+        <script type="text/javascript" src="js/caue/interface/search.js"></script>
+        <script type="text/javascript" src="js/caue/interface/keyboard_listeners.js"></script>
+        <script type="text/javascript" src="js/caue/interface/mouse_listeners.js"></script>
+        <script type="text/javascript" src="js/caue/interface/get_pixel_hover.js"></script>
+
+        <script type="text/javascript" src="cauejs.js"></script>
+        <script type="text/javascript" src="js/caue/operations.js"></script>
+        <script type="text/javascript" src="js/caue/libs/canvas.currentTransform.js"></script>
+        <script type="text/javascript" src="js/caue/libs/jsaes.js"></script>
+        <script type="text/javascript" src="js/caue/transformations.js"></script>
+        <script type="text/javascript" src="js/caue/color_components.js"></script>
+        <script type="text/javascript" src="js/caue/pseudo_coloring.js"></script>
+        <script type="text/javascript" src="js/caue/highlight.js"></script>
+        <script type="text/javascript" src="js/caue/filters.js"></script>
+        <script type="text/javascript" src="js/caue/segmentation.js"></script>
+        <script type="text/javascript" src="js/caue/encode_project/codify_into_image.js"></script>
+        <script type="text/javascript" src="js/caue/encode_project/decode_into_html.js"></script>
+        <script type="text/javascript" src="js/caue/encode_project/compress_uncompress_image.js"></script>
+        <script type="text/javascript" src="js/caue/encode_project/encryption_viginere.js"></script>
+        <script type="text/javascript" src="js/caue/encode_project/encryption_aes.js"></script>
+
+        <script type="text/javascript" src="js/caue/extras.js"></script>
+        <script type="text/javascript" src="js/caue/utils.js"></script>
+
+        
+
+        <script type="text/javascript" src="js/vendor/jquery/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/vendor/bootstrap/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/vendor/moment/moment.min.js"></script>
+        <script type="text/javascript" src="js/vendor/customscrollbar/jquery.mCustomScrollbar.min.js"></script>
+        <!-- END IMPORTANT SCRIPTS -->
+        <!-- EXTERNALS -->
+        
+        <script type="text/javascript" src="js/caue/libs/sweetalert2.all.min.js"></script>
+        <script type="text/javascript" src="js/caue/libs/aes-js.js"></script>
+
+        <script type="text/javascript" src="js/caue/postfix_operations.js"></script>
+        <!-- END THIS PAGE SCRIPTS -->        
+        <!-- APP SCRIPTS -->
+        <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="js/app_plugins.js"></script>
+        <script type="text/javascript" src="js/app_demo.js"></script>
+        <!-- ADDED -->
+        <script type="text/javascript" src="js/vendor/dropzone/dropzone.js"></script>
+        <script type="text/javascript" src="js/vendor/noty/jquery.noty.packaged.js"></script>
+        <script src="js/vendor/summernote/summernote.min.js"></script>
+
+
+        
+        <!-- END APP SCRIPTS -->
+    </body>
+</html>
