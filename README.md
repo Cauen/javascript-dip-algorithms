@@ -1,6 +1,7 @@
 # Javascript Digital Image Processing Algorithms
 Digital Image Processing Algorithms for UFERSA 2018.1 by Emanuel Cauê - [Demo](https://pdiufersa.ga) 
 
+![PDI](https://user-images.githubusercontent.com/8796757/54609607-143ef000-4a32-11e9-8273-93f8e946f9f3.gif)
 ![pdi ufersa print](https://user-images.githubusercontent.com/8796757/47438878-abed2a80-d781-11e8-9f29-9ed57200a48d.png)
 
 ## Algorithms
