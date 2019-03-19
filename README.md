@@ -129,6 +129,10 @@ Some algorithms of Digital Image Processing in Javascript
 
 ![options tab](https://user-images.githubusercontent.com/8796757/47442116-23be5380-d788-11e8-91e1-a6873edbc93b.png)
 
+## Project
+Encrypt HTML content inside image
+
+![PROJECT](https://user-images.githubusercontent.com/8796757/54610146-253c3100-4a33-11e9-9717-e5ce5dc1dc4a.gif)
 
 ## Shortcuts
 
