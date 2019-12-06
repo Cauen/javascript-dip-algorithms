@@ -200,12 +200,6 @@ jQuery.loadScript = function (url, callback) {
     });
 };
 
-var chartLoaded = false;
-if (typeof someObject == 'undefined' && chartLoaded == false) $.loadScript('js/caue/libs/Chart.min.js', function(){
-    //Stuff to do after someScript has loaded
-    chartLoaded = true;
-});
-
 var bar_chart;
 function histogram_compare (image1Data, image2Data, labelBlue, labelOrange) {
     var canv = document.createElement('canvas');
