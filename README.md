@@ -1,5 +1,5 @@
 # Javascript Digital Image Processing Algorithms
-Digital Image Processing Algorithms for UFERSA 2018.1 by Emanuel Cauê - [Demo](https://dipjs.ga) 
+Digital Image Processing Algorithms for UFERSA 2018.1 by Emanuel Cauê - [Demo](https://javascript-dip-algorithms.vercel.app/) 
 
 ![PDI](https://user-images.githubusercontent.com/8796757/54609607-143ef000-4a32-11e9-8273-93f8e946f9f3.gif)
 
